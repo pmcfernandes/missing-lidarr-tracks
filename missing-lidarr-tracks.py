@@ -131,7 +131,7 @@ def updateTrackTable(conn, track, dest):
     cur.execute("""
         INSERT INTO TrackFiles (AlbumId, Quality, Size, DateAdded, MediaInfo, Modified, Path)
             VALUES(?, ?, ?, ?, ?, ?, ?)
-    """, (track.AlbumId, quality, fileSize, dt, mediainfo, dt, dest))
+    """, (track.AlbumId, quality, fileSize, dt_now, mediainfo, dt_now, dest))
 
     trackFileId = cur.lastrowid
 
@@ -271,7 +271,7 @@ def printTag(content):
 
 
 if __name__ == '__main__':
-    lidarr_db = os.getenv('LIDARR_DB', 'D:/Downloads/lidarr.db')
+    lidarr_db = os.getenv('LIDARR_DB', '/mnt/cache/appdata/lidarr/lidarr.db')
 
     if not os.path.exists(lidarr_db):
         print(f'File {lidarr_db} not found.')
