@@ -1,3 +1,4 @@
+youtube-search-python
 yt-dlp
 eyed3
 unidecode
